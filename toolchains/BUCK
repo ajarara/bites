@@ -1,5 +1,19 @@
-load("@prelude//toolchains:demo.bzl", "system_demo_toolchains")
+load("@prelude//android:android_toolchain.bzl", "GenruleToolchainInfo")
 
-# All the default toolchains, suitable for a quick demo or early prototyping.
-# Most real projects should copy/paste the implementation to configure them.
-system_demo_toolchains()
+def _android_genrule_toolchain_impl(_ctx):
+    return [
+        AndroidPlatformInfo(),
+        AndroidToolchainInfo()
+    ]
+
+android_genrule_toolchain = rule(
+    impl = _android_genrule_toolchain_impl,
+    attrs = {},
+    is_toolchain_rule = True,
+)
+
+
+android_genrule_toolchain(
+    name = "android",
+    visibility = ["PUBLIC"],
+)
