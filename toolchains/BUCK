@@ -1,5 +1,5 @@
 load("@prelude//toolchains:remote_test_execution.bzl", "remote_test_execution_toolchain")
-load("toolchains.bzl", "android_toolchain", "dex_toolchain", "java_toolchain", "kotlin_toolchain")
+load("toolchains.bzl", "android_toolchain", "dex_toolchain", "java_toolchain")
 
 
 android_toolchain(
