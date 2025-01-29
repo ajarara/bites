@@ -1,19 +1,29 @@
-load("@prelude//android:android_toolchain.bzl", "GenruleToolchainInfo")
-
-def _android_genrule_toolchain_impl(_ctx):
-    return [
-        AndroidPlatformInfo(),
-        AndroidToolchainInfo()
-    ]
-
-android_genrule_toolchain = rule(
-    impl = _android_genrule_toolchain_impl,
-    attrs = {},
-    is_toolchain_rule = True,
-)
+load("@prelude//toolchains:remote_test_execution.bzl", "remote_test_execution_toolchain")
+load("toolchains.bzl", "android_toolchain", "dex_toolchain", "java_toolchain", "kotlin_toolchain")
 
 
-android_genrule_toolchain(
+android_toolchain(
     name = "android",
-    visibility = ["PUBLIC"],
+    visibility = ["PUBLIC"]
 )
+
+java_toolchain(
+    name = "java",
+    visibility = ["PUBLIC"]
+)
+
+dex_toolchain(
+    name = "dex",
+    visibility = ["PUBLIC"]
+)
+
+# kotlin_toolchain(
+#     name = "kotlin",
+#     visibility = ["PUBLIC"]
+# )
+
+
+# remote_test_execution_toolchain(
+#     name = "remote_test_execution",
+#     visibility = ["PUBLIC"],
+# )
