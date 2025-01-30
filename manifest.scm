@@ -1,5 +1,2 @@
-(packages->manifest
- (list
-  (specification->package+output
-   "openjdk:jdk"
-   "bazel")))
+(specifications->manifest
+  (list "openjdk:jdk" "bazel"))
