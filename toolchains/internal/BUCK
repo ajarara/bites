@@ -1,0 +1,8 @@
+load("@prelude//native.bzl", prelude = "native")
+
+# how do I define a rule that can be accessed 
+prelude.sh_binary(
+    name = "compile_and_package",
+    main = "compile_and_package.sh",
+    visibility = ["PUBLIC"],
+)
