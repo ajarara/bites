@@ -21,6 +21,15 @@ def _java_toolchain_impl(ctx: AnalysisContext) -> list[Provider]:
             javac = "javac",
             javac_protocol = "classic",
             compile_and_package = ctx.attrs.compile_and_package,
+            jar_builder = [],
+            class_abi_generator = ctx.attrs.compile_and_package,
+            src_root_elements = [],
+            src_root_prefixes = [],
+            gen_class_to_source_map = ctx.attrs.compile_and_package,
+            global_code_config = {},
+            fat_jar = ctx.attrs.compile_and_package,
+            zip_scrubber = [],
+            java = ctx.attrs.compile_and_package,
             source_level = "21",
             target_level = "21"
         )
