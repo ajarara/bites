@@ -1,8 +1,31 @@
-load("@prelude//native.bzl", prelude = "native")
+load("@prelude//native.bzl", "native")
 
-# how do I define a rule that can be accessed 
-prelude.sh_binary(
+native.sh_binary(
     name = "compile_and_package",
     main = "compile_and_package.sh",
+    visibility = ["PUBLIC"],
+)
+
+native.sh_binary(
+    name = "class_abi_generator",
+    main = "class_abi_generator.sh",
+    visibility = ["PUBLIC"],
+)
+
+native.sh_binary(
+    name = "gen_class_to_source_map",
+    main = "gen_class_to_source_map.sh",
+    visibility = ["PUBLIC"],
+)
+
+native.sh_binary(
+    name = "fat_jar",
+    main = "fat_jar.sh",
+    visibility = ["PUBLIC"],
+)
+
+native.sh_binary(
+    name = "java",
+    main = "java.sh",
     visibility = ["PUBLIC"],
 )

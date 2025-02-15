@@ -22,14 +22,14 @@ def _java_toolchain_impl(ctx: AnalysisContext) -> list[Provider]:
             javac_protocol = "classic",
             compile_and_package = ctx.attrs.compile_and_package,
             jar_builder = [],
-            class_abi_generator = ctx.attrs.compile_and_package,
+            class_abi_generator = ctx.attrs.class_abi_generator,
             src_root_elements = [],
             src_root_prefixes = [],
-            gen_class_to_source_map = ctx.attrs.compile_and_package,
+            gen_class_to_source_map = ctx.attrs.gen_class_to_source_map,
             global_code_config = {},
-            fat_jar = ctx.attrs.compile_and_package,
+            fat_jar = ctx.attrs.fat_jar,
             zip_scrubber = [],
-            java = ctx.attrs.compile_and_package,
+            java = ctx.attrs.java,
             source_level = "21",
             target_level = "21"
         )
@@ -39,9 +39,16 @@ def _java_toolchain_impl(ctx: AnalysisContext) -> list[Provider]:
 java_toolchain = rule(
     impl = _java_toolchain_impl,
     attrs = {
-        # prelude/decls/shell_rules - sh_binary
         "compile_and_package": attrs.default_only(
             attrs.exec_dep(providers = [RunInfo], default = "//internal:compile_and_package")),
+        "class_abi_generator": attrs.default_only(
+            attrs.exec_dep(providers = [RunInfo], default = "//internal:class_abi_generator")),
+        "gen_class_to_source_map": attrs.default_only(
+            attrs.exec_dep(providers = [RunInfo], default = "//internal:gen_class_to_source_map")),
+        "fat_jar": attrs.default_only(
+            attrs.exec_dep(providers = [RunInfo], default = "//internal:fat_jar")),
+        "java": attrs.default_only(
+            attrs.exec_dep(providers = [RunInfo], default = "//internal:java")),
     },
     is_toolchain_rule = True,
 )
