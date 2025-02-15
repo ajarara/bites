@@ -1,3 +1,8 @@
+set -o errtrace
+set -o nounset
+set -o pipefail
+set -eu
+
 # --jar_builder_tool --output buck-out/v2/gen/root/904931f735703749/java/io/ajarara/example/__example__/jar/example.jar --javac_tool javac --generated_sources_dir buck-out/v2/gen/root/904931f735703749/java/io/ajarara/example/__example__/generated_sources --javac_args_file buck-out/v2/gen/root/904931f735703749/java/io/ajarara/example/__example__/javac_args
 
 while [[ $# -gt 0 ]]; do
