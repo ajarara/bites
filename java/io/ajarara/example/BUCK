@@ -1,6 +1,9 @@
 java_library(
     name = "example",
     srcs = glob(['*.java']),
+    # deps = [
+    #     "//java/io/ajarara/dependency:dependency"
+    # ],
     visibility = ["PUBLIC"],
 )
 
