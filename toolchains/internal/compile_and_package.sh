@@ -6,6 +6,10 @@ while [[ $# -gt 0 ]]; do
             # ignore it, unsure why it's passed
             shift 1
             ;;
+        '')
+            # ignore this too, unsure why it's passed
+            shift 1
+            ;;
         --output)
             OUTPUT="$2"
             shift 2
@@ -23,19 +27,13 @@ while [[ $# -gt 0 ]]; do
             shift 2
             ;;
         *)
-            shift 1
+            echo "unknown switch $1"
+            exit 1
             ;;
     esac
 done
 
 $JAVAC_TOOL @$JAVAC_ARGS_FILE -d $TMPDIR
-
-# pwd
-# mkdir -p "$(dirname $OUTPUT)"
-# echo "$(dirname $OUTPUT)"
-# echo "ajarara $(pwd)/$OUTPUT"
-# env
-echo $JAVAC_ARGS_FILE
 
 JAR_NAME="$(basename $OUTPUT)"
 
@@ -44,7 +42,3 @@ mv $JAR_NAME $OUTPUT
 
 # generated sources? ignore for now.
 mkdir -p $GENERATED_SOURCES_DIR
-
-echo "compile_and_package"
-
-echo $@
