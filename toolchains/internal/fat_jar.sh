@@ -51,9 +51,10 @@ PROJECT_ROOT="$(pwd)"
 # unpack all jars in $JAR_FILE
 CLASSES="$TMPDIR/classes/"
 mkdir $CLASSES
-pushd $CLASSES
 
-while IFS= read -r line; do
+echo $JARS_FILE
+pushd $CLASSES
+while IFS= read -r line || [[ -n "$line" ]]; do
     JAR="$PROJECT_ROOT/$line"
     echo "$JAR"
     jar -x -f "$JAR"

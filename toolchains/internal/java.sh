@@ -1,2 +1,1 @@
-echo "java"
-echo $@
+java $@
