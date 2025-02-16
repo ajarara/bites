@@ -3,8 +3,6 @@ set -o nounset
 set -o pipefail
 set -eu
 
-# --jar_builder_tool --zip_scrubber_tool --output buck-out/v2/gen/root/904931f735703749/__MyGreatApp__/MyGreatApp.jar --jars_file buck-out/v2/gen/root/904931f735703749/__MyGreatApp__/jars_file --main_class io.ajarara.example.Example
-
 while [[ $# -gt 0 ]]; do
     case $1 in
         --jar_builder_tool)
@@ -52,20 +50,13 @@ PROJECT_ROOT="$(pwd)"
 CLASSES="$TMPDIR/classes/"
 mkdir $CLASSES
 
-echo $JARS_FILE
 pushd $CLASSES
 while IFS= read -r line || [[ -n "$line" ]]; do
     JAR="$PROJECT_ROOT/$line"
-    echo "$JAR"
     jar -x -f "$JAR"
 done < "$PROJECT_ROOT/$JARS_FILE"
-
 popd
 
 
 # repack into jar file
 jar --create --file $OUTPUT --manifest=$MANIFEST_PATH -C $CLASSES .
-
-env
-echo "fat_jar"
-echo $@
