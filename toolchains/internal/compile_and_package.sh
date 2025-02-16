@@ -31,6 +31,10 @@ while [[ $# -gt 0 ]]; do
             JAVAC_ARGS_FILE="$2"
             shift 2
             ;;
+        --javac_classpath_file)
+            JAVAC_CLASSPATH_FILE="$2"
+            shift 2
+            ;;
         *)
             echo "unknown switch $1"
             exit 1
@@ -38,7 +42,10 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
-$JAVAC_TOOL @$JAVAC_ARGS_FILE -d $TMPDIR
+# solo dependencies don't have anything on the path
+[[ -v JAVAC_CLASSPATH_FILE ]] || JAVAC_CLASSPATH_FILE=""
+
+$JAVAC_TOOL @$JAVAC_ARGS_FILE -d $TMPDIR -cp @$JAVAC_CLASSPATH_FILE
 
 JAR_NAME="$(basename $OUTPUT)"
 
