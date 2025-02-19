@@ -1,2 +1,2 @@
 (specifications->manifest
-  (list "openjdk:jdk" "bazel"))
+ (list "openjdk:jdk"))
