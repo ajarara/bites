@@ -9,4 +9,12 @@ function build_app () {
    buck build :MyGreatApp
 }
 
+function build () {
+    build_app
+}
+
+function test () {
+    buck run :MyGreatApp
+}
+
 $@
