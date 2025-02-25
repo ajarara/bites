@@ -62,10 +62,12 @@ dex_toolchain = rule(
     is_toolchain_rule = True,
 )
 
-# kotlin_toolchain = rule(
-#     impl = lambda ctx: [
-#         KotlinToolchainInfo()
-#     ],
-#     attrs = {},
-#     is_toolchain_rule = True,
-# )
+kotlin_toolchain = rule(
+    impl = lambda ctx: [
+        DefaultInfo(),
+        KotlinToolchainInfo(),
+        
+    ],
+    attrs = {},
+    is_toolchain_rule = True,
+)
