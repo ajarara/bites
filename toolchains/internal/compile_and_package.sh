@@ -29,6 +29,14 @@ while [[ $# -gt 0 ]]; do
             JAVAC_CLASSPATH_FILE="$2"
             shift 2
             ;;
+        --skip_javac_run)
+            SKIP_JAVAC_RUN=1
+            shift 1
+            ;;
+        --additional_compiled_srcs)
+            ADDITIONAL_COMPILED_SRCS="$2"
+            shift 2
+            ;;
         *)
             echo "unknown switch $1"
             exit 1
@@ -41,9 +49,14 @@ done
 # solo dependencies don't have anything on the path, so the argument might be omitted altogether
 [[ -v JAVAC_CLASSPATH_FILE ]] || JAVAC_CLASSPATH_FILE=""
 
-$JAVAC_TOOL @$JAVAC_ARGS_FILE -d $TMPDIR -cp @$JAVAC_CLASSPATH_FILE
+if [[ ! -v SKIP_JAVAC_RUN ]]; then
+    $JAVAC_TOOL @$JAVAC_ARGS_FILE -d $TMPDIR -cp @$JAVAC_CLASSPATH_FILE
+fi
 
 $JAR_BUILDER_TOOL --create --file $OUTPUT -C $TMPDIR/ .
 
-# generated sources? ignore for now.
-mkdir -p $GENERATED_SOURCES_DIR
+if [[ -v GENERATED_SOURCES_DIR ]]; then
+   # generated sources? ignore for now.
+    mkdir -p $GENERATED_SOURCES_DIR
+fi
+   

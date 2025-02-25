@@ -29,3 +29,21 @@ native.sh_binary(
     main = "java.sh",
     visibility = ["PUBLIC"],
 )
+
+native.sh_binary(
+    name = "compile_kotlin",
+    main = "compile_kotlin.sh",
+    visibility = ["PUBLIC"],
+)
+
+native.sh_binary(
+    name = "kotlinc",
+    main = "kotlinc.sh",
+    visibility = ["PUBLIC"],
+)
+
+native.sh_binary(
+    name = "kotlin_stdlib",
+    main = "kotlin_stdlib.sh",
+    visibility = ["PUBLIC"],
+)

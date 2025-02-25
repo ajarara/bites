@@ -65,9 +65,24 @@ dex_toolchain = rule(
 kotlin_toolchain = rule(
     impl = lambda ctx: [
         DefaultInfo(),
-        KotlinToolchainInfo(),
+        KotlinToolchainInfo(
+            kotlinc_protocol = "classic",
+            compile_kotlin = ctx.attrs.compile_kotlin,
+            kotlinc = ctx.attrs.kotlinc,
+            kotlin_stdlib = ctx.attrs.kotlin_stdlib,
+        ),
         
     ],
-    attrs = {},
+    attrs = {
+        "compile_kotlin": attrs.default_only(
+            attrs.exec_dep(providers = [RunInfo], default = "//internal:compile_kotlin")
+        ),
+        "kotlinc": attrs.default_only(
+            attrs.exec_dep(providers = [RunInfo], default = "//internal:kotlinc")
+        ),
+        "kotlin_stdlib": attrs.default_only(
+            attrs.exec_dep(providers = [RunInfo], default = "//internal:kotlin_stdlib")
+        ),
+    },
     is_toolchain_rule = True,
 )
