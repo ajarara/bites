@@ -33,6 +33,8 @@ done
 env
 
 mkdir -p $KOTLINC_OUTPUT
-# kotlinc @$KOTLINC_CMD_FILE -d $KOTLINC_OUTPUT
+exit 1
+# `cat $KOTLINC_CMD_FILE`
+
 
 

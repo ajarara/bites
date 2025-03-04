@@ -4,4 +4,4 @@ set -o pipefail
 set -eu
 
 env
-exit 1
+kotlinc
