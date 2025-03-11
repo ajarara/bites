@@ -21,6 +21,18 @@ class Tarjan {
         this.adjacencyMap = adjacencyMap;
     }
 
+    // returns a topo sort of strongly connected components given an adjacency list
+    private static List<Set<Integer>> tarjan(Map<Integer, List<Integer>> adjacencyMap) {
+        final var tarjan = new Tarjan(adjacencyMap);
+        for (var vertex : adjacencyMap.keySet()) {
+            if (!tarjan.indices.containsKey(vertex)) {
+                tarjan.strongConnect(vertex);
+            }
+        }
+
+        return tarjan.sccs;
+    }
+
     private void strongConnect(final Integer vertex) {
         indices.put(vertex, idx);
         lowlinks.put(vertex, idx);
@@ -85,18 +97,6 @@ class Tarjan {
         if (!expected.equals(actual)) {
             System.out.println("Test case " + name + " failed!\nExpected: " + expected + "\nActual: " + actual);
         }
-    }
-
-    // returns a topo sort of strongly connected components given an adjacency list
-    private static List<Set<Integer>> tarjan(Map<Integer, List<Integer>> adjacencyMap) {
-        final var tarjan = new Tarjan(adjacencyMap);
-        for (var vertex : adjacencyMap.keySet()) {
-            if (!tarjan.indices.containsKey(vertex)) {
-                tarjan.strongConnect(vertex);
-            }
-        }
-
-        return tarjan.sccs;
     }
 }
 
