@@ -62,30 +62,41 @@ class Tarjan {
 
 
     public static void main(String[] args) {
-        final var adjA = new HashMap<Integer, List<Integer>>();
-        adjA.put(1, Arrays.asList(2));
-        adjA.put(2, Arrays.asList(3));
-        adjA.put(3, Arrays.asList(1, 4));
-        adjA.put(4, Arrays.asList(5, 4));  // add a self link after you get it working
-        adjA.put(5, Arrays.asList(6));
-        adjA.put(6, Arrays.asList(5));
+        final var complex =
+            Map.of(1, List.of(2),
+                   2, List.of(3),
+                   3, List.of(1, 4),
+                   4, List.of(5, 4),
+                   5, List.of(6),
+                   6, List.of(5));
 
-        testCase("adjA", tarjan(adjA), Arrays.asList(new HashSet<>(Arrays.asList(6, 5)),
-                                                     new HashSet<>(Arrays.asList(4)),
-                                                     new HashSet<>(Arrays.asList(3, 2, 1))));
+        testCase("complex", tarjan(complex),
+                 List.of(Set.of(6, 5),
+                         Set.of(4),
+                         Set.of(3, 2, 1)));
 
-        final var adjB = new HashMap<Integer, List<Integer>>();
-        testCase("adjB", tarjan(adjB), new ArrayList<>());
 
-        final var adjC = new HashMap<Integer, List<Integer>>();
-        adjC.put(1, Arrays.asList(2));
-        adjC.put(2, Arrays.asList(3));
-        adjC.put(3, Arrays.asList(4));
-        adjC.put(4, Arrays.asList(5));
-        adjC.put(5, Arrays.asList(6));
-        adjC.put(6, Arrays.asList(1));
+        testCase("empty", tarjan(Map.of()), List.of());
 
-        testCase("adjC", tarjan(adjC), Arrays.asList(new HashSet<>(Arrays.asList(6, 5, 4, 3, 2, 1))));
+        final var longCycle =
+            Map.of(1, List.of(2),
+                   2, List.of(3),
+                   3, List.of(4),
+                   4, List.of(5),
+                   5, List.of(6),
+                   6, List.of(1));
+
+        testCase("longCycle", tarjan(longCycle), List.of(Set.of(6, 5, 4, 3, 2, 1)));
+
+        final var hairline =
+            Map.of(1, List.of(2),
+                   2, List.of(3),
+                   3, List.of(4),
+                   4, List.of(5),
+                   5, List.of(6),
+                   6, new ArrayList<Integer>());
+
+        testCase("hairline", tarjan(hairline), List.of(Set.of(6), Set.of(5), Set.of(4), Set.of(3), Set.of(2), Set.of(1)));
     }
 
     private static <T> void testCase(String name,
