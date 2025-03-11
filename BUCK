@@ -12,4 +12,11 @@ java_binary(
     deps = [
         "//java/io/ajarara/tarjan:tarjan",
     ])
+
+java_binary(
+    name = "Heapify",
+    main_class = "io.ajarara.tarjan.Heapify",
+    deps = [
+        "//java/io/ajarara/heapify:heapify",
+    ])
     
