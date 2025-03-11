@@ -97,6 +97,17 @@ class Tarjan {
                    6, new ArrayList<Integer>());
 
         testCase("hairline", tarjan(hairline), List.of(Set.of(6), Set.of(5), Set.of(4), Set.of(3), Set.of(2), Set.of(1)));
+
+
+        final var outward =
+            Map.of(1, List.of(2),
+                   2, List.of(3, 4),
+                   3, List.of(1),
+                   4, List.of(5),
+                   5, List.of(6),
+                   6, List.of(4));
+
+        testCase("outward", tarjan(outward), List.of(Set.of(6, 5, 4), Set.of(1, 2, 3)));
     }
 
     private static <T> void testCase(String name,
