@@ -32,6 +32,8 @@ class Tarjan {
                         if (!indices.containsKey(adjacent)) {
                             accept(adjacent);
                         }
+                        // where we significantly deviate from the published algo:
+                        // the wiki algo updates lowlinks unconditionally after the recursion
                         if (stack.contains(adjacent)) {
                             lowlinks.put(vertex,
                                          Math.min(lowlinks.get(vertex), lowlinks.get(adjacent)));
@@ -97,7 +99,6 @@ class Tarjan {
                    6, new ArrayList<Integer>());
 
         testCase("hairline", tarjan(hairline), List.of(Set.of(6), Set.of(5), Set.of(4), Set.of(3), Set.of(2), Set.of(1)));
-
 
         final var outward =
             Map.of(1, List.of(2),
