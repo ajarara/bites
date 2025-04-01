@@ -2,6 +2,8 @@ load("@prelude//android:android_toolchain.bzl", "AndroidToolchainInfo")
 load("@prelude//java:java_toolchain.bzl", "JavaToolchainInfo", "JavaPlatformInfo")
 load("@prelude//java:dex_toolchain.bzl", "DexToolchainInfo")
 load("@prelude//kotlin:kotlin_toolchain.bzl", "KotlinToolchainInfo")
+load("@prelude//java:java_test.bzl", "java_test_impl")
+load("@prelude//decls:toolchains_common.bzl", "toolchains_common")
 
 android_toolchain = rule(
     impl = lambda ctx: [
@@ -49,6 +51,27 @@ java_toolchain = rule(
             attrs.exec_dep(providers = [RunInfo], default = "//internal:fat_jar")),
         "java": attrs.default_only(
             attrs.exec_dep(providers = [RunInfo], default = "//internal:java")),
+    },
+    is_toolchain_rule = True,
+)
+
+java_test_toolchain = rule(
+    impl = java_test_impl,
+    attrs = {
+        "_build_only_native_code": attrs.bool(default = False),
+        "srcs": attrs.list(attrs.source(), default = []),
+        "provided_deps": attrs.list(attrs.source(), default = []),
+        "exported_provided_deps": attrs.list(attrs.source(), default = []),
+        "exported_deps": attrs.list(attrs.source(), default = []),
+        "deps": attrs.list(attrs.source(), default = []),
+        "resources": attrs.list(attrs.source(), default = []),
+        "resources_root": attrs.option(attrs.source(), default = None),
+        "plugins": attrs.list(attrs.dep(), default = []),
+        "annotation_processors": attrs.list(attrs.string(), default = []),
+        "annotation_processor_params": attrs.list(attrs.string(), default = []),
+        "annotation_processor_deps": attrs.list(attrs.dep(), default = []),
+        "manifest_file": attrs.option(attrs.source(), default = None),
+        "_java_toolchain": toolchains_common.java(),
     },
     is_toolchain_rule = True,
 )
