@@ -4,6 +4,7 @@ load("@prelude//java:dex_toolchain.bzl", "DexToolchainInfo")
 load("@prelude//kotlin:kotlin_toolchain.bzl", "KotlinToolchainInfo")
 load("@prelude//java:java_test.bzl", "java_test_impl")
 load("@prelude//decls:toolchains_common.bzl", "toolchains_common")
+load("@prelude//decls:common.bzl", "buck")
 
 android_toolchain = rule(
     impl = lambda ctx: [
@@ -72,6 +73,13 @@ java_test_toolchain = rule(
         "annotation_processor_deps": attrs.list(attrs.dep(), default = []),
         "manifest_file": attrs.option(attrs.source(), default = None),
         "_java_toolchain": toolchains_common.java(),
+        "_java_test_toolchain": toolchains_common.java_test(),
+        "java_version": attrs.option(attrs.string(), default = None),
+        "source": attrs.option(attrs.string(), default = None),
+        "target": attrs.option(attrs.string(), default = None),
+        "runtime_deps": attrs.list(attrs.dep(), default = []),
+        "labels": attrs.list(attrs.string(), default = []),
+        "_exec_os_type": buck.exec_os_type_arg(),
     },
     is_toolchain_rule = True,
 )
