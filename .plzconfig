@@ -7,3 +7,9 @@
 ; when you change it all users will automatically get updated.
 ; [please]
 ; version = 17.16.0
+
+[parse]
+preloadsubincludes = ///java//build_defs:java
+
+[Plugin "java"]
+Target = //plugins:java
