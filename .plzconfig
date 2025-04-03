@@ -14,6 +14,8 @@ preloadsubincludes = ///cc//build_defs:cc
 
 [Plugin "java"]
 Target = //plugins:java
+SourceLevel = 21
+TargetLevel = 21
 
 [Plugin "cc"]
 Target = //plugins:cc
