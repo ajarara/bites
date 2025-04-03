@@ -10,6 +10,10 @@
 
 [parse]
 preloadsubincludes = ///java//build_defs:java
+preloadsubincludes = ///cc//build_defs:cc
 
 [Plugin "java"]
 Target = //plugins:java
+
+[Plugin "cc"]
+Target = //plugins:cc
