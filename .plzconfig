@@ -17,3 +17,9 @@ Target = //plugins:java
 
 [Plugin "cc"]
 Target = //plugins:cc
+
+; see please/issues/2882
+; all we need is ls, dirname, mv as the issue suggests
+; and if we move to remote execution we'll need to 
+[build]
+passenv = PATH
