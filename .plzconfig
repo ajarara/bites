@@ -25,3 +25,10 @@ Target = //plugins:cc
 ; and if we move to remote execution we'll need to 
 [build]
 passenv = PATH
+
+[Alias "b"]
+cmd = "build -p"
+
+[Alias "t"]
+cmd = "test -p"
+

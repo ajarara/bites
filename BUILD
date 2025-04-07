@@ -4,6 +4,12 @@ maven_jar(
     visibility = ["PUBLIC"],
 )
 
+maven_jar(
+    name = "jakarta-api",
+    id = "jakarta.annotation:jakarta.annotation-api:3.0.0",
+    visibility = ["PUBLIC"],
+)
+
 java_binary(
     name = "MyGreatApp",
     main_class = "io.ajarara.example.Example",
