@@ -3,6 +3,7 @@ java_test(
         srcs = glob("*.java"),
         deps = [
              "//java/io/ajarara/traversals:traversals",
+             "//java/io/ajarara/utils:utils",
             "//:junit",
         ],
 )
