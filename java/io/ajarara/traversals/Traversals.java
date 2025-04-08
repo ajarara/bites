@@ -63,7 +63,7 @@ class Traversals {
                 var curr = stack.peek();
                 if (curr.right() == prevNode) {
                     prevNode = curr;
-                    stack.pop();
+                    stack.remove();
                     return curr;
                 }
                 descendLeft.accept(curr.right());
@@ -74,6 +74,33 @@ class Traversals {
     }
 
     public static Iterator<TreeNode> inorder(TreeNode root) {
-        return List.<TreeNode>of().iterator();
+        if (root == null) {
+            return List.<TreeNode>of().iterator();
+        }
+        // left, root, then right
+        var stack = new ArrayDeque<TreeNode>();
+        var descendLeft = new Consumer<TreeNode>() {
+                @Override
+                public void accept(TreeNode treeNode) {
+                    if (treeNode != null) {
+                        stack.addFirst(treeNode);
+                        this.accept(treeNode.left());
+                    }
+                }
+            };
+        descendLeft.accept(root);
+        return new Iterator<TreeNode>() {
+            @Override
+            public boolean hasNext() {
+                return !stack.isEmpty();
+            }
+
+            @Override
+            public TreeNode next() {
+                TreeNode curr = stack.remove();
+                descendLeft.accept(curr.right());
+                return curr;
+            }
+        };
     }
 }
