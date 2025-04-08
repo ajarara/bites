@@ -11,6 +11,7 @@
 [parse]
 preloadsubincludes = ///java//build_defs:java
 preloadsubincludes = ///cc//build_defs:cc
+preloadsubincludes = //plugins/kotlin:kotlin
 
 [Plugin "java"]
 Target = //plugins:java
