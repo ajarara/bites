@@ -47,6 +47,67 @@ public class TraversalsTest {
         List<TreeNode> actual = Lists.from(Traversals.preorder(root));
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void postorder_nullTree() {
+        List<TreeNode> result = Lists.from(Traversals.postorder(null));
+        assertEquals(result, List.of());
+    }
+
+
+    @Test
+    public void postorder_singleNode() {
+        TreeNode root = new TreeNode(1, null, null);
+        List<TreeNode> expected = List.of(root);
+
+        List<TreeNode> result = Lists.from(Traversals.postorder(root));
+
+        assertEquals(expected, result);
+    }
+
+
+    @Test
+    public void postorder_leftChildOnly() {
+        TreeNode left = new TreeNode(2, null, null);
+        TreeNode root = new TreeNode(1, left, null);
+        List<TreeNode> expected = List.of(left, root);
+
+        List<TreeNode> result = Lists.from(Traversals.postorder(root));
+
+        assertEquals(expected, result);
+    }
+
+
+    @Test
+    public void postorder_rightChildOnly() {
+        TreeNode right = new TreeNode(3, null, null);
+        TreeNode root = new TreeNode(1, null, right);
+        List<TreeNode> expected = List.of(right, root);
+
+        List<TreeNode> result = Lists.from(Traversals.postorder(root));
+
+        assertEquals(expected, result);
+    }
+
+
+
+    @Test
+    public void postorder_completeBinaryTree() {
+        TreeNode leftLeft = new TreeNode(4, null, null);
+        TreeNode leftRight = new TreeNode(5, null, null);
+        TreeNode rightLeft = new TreeNode(6, null, null);
+        TreeNode rightRight = new TreeNode(7, null, null);
+        TreeNode left = new TreeNode(2, leftLeft, leftRight);
+        TreeNode right = new TreeNode(3, rightLeft, rightRight);
+        TreeNode root = new TreeNode(1, left, right);
+
+        List<TreeNode> expected = List.of(leftLeft, leftRight, left, rightLeft, rightRight, right, root);
+        List<TreeNode> result = Lists.from(Traversals.postorder(root));
+        assertEquals(expected, result);
+
+    }
+
+    
 }
 
 
