@@ -107,7 +107,68 @@ public class TraversalsTest {
 
     }
 
-    
+    @Test
+    public void inorder_emptyTree() {
+        TreeNode root = null;
+        List<TreeNode> expected = List.of();
+        List<TreeNode> actual = Lists.from(Traversals.inorder(root));
+
+        assertEquals(expected, actual);
+    }
+
+
+    @Test
+    public void inorder_singleNode() {
+        TreeNode root = new TreeNode(1, null, null);
+        
+        List<TreeNode> expected = List.of(root);
+        List<TreeNode> actual = Lists.from(Traversals.inorder(root));
+
+        assertEquals(expected, actual);
+    }
+
+
+    @Test
+    public void inorder_fullTree() {
+        TreeNode leftLeft = new TreeNode(4, null, null);
+        TreeNode leftRight = new TreeNode(5, null, null);
+        TreeNode left = new TreeNode(2, leftLeft, leftRight);
+        TreeNode rightLeft = new TreeNode(6, null, null);
+        TreeNode rightRight = new TreeNode(7, null, null);
+        TreeNode right = new TreeNode(3, rightLeft, rightRight);
+        TreeNode root = new TreeNode(1, left, right);
+
+        List<TreeNode> expected = List.of(leftLeft, left, leftRight, root, rightLeft, right, rightRight);
+        List<TreeNode> actual = Lists.from(Traversals.inorder(root));
+        
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void inorder_leftLeaningTree() {
+        TreeNode leftLeft = new TreeNode(4, null, null);
+        TreeNode left = new TreeNode(2, leftLeft, null);
+        TreeNode root = new TreeNode(1, left, null);
+
+        List<TreeNode> expected = List.of(leftLeft, left, root);
+        List<TreeNode> actual = Lists.from(Traversals.inorder(root));
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void inorder_rightLeaningTree() {
+        TreeNode rightRight = new TreeNode(7, null, null);
+        TreeNode right = new TreeNode(3, null, rightRight);
+        TreeNode root = new TreeNode(1, null, right);
+
+        List<TreeNode> expected = List.of(root, right, rightRight);
+        List<TreeNode> actual = Lists.from(Traversals.inorder(root));
+
+        assertEquals(expected, actual);
+    }
+
+
 }
 
 

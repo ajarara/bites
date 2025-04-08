@@ -61,7 +61,7 @@ class Traversals {
             @Override
             public TreeNode next() {
                 var curr = stack.peek();
-                if (curr.right() == prevNode || curr.right() == null) {
+                if (curr.right() == prevNode) {
                     prevNode = curr;
                     stack.pop();
                     return curr;
@@ -71,5 +71,9 @@ class Traversals {
                 return prevNode;
             }
         };
+    }
+
+    public static Iterator<TreeNode> inorder(TreeNode root) {
+        return List.<TreeNode>of().iterator();
     }
 }
