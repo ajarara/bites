@@ -4,6 +4,7 @@ java_library(
     deps = [
         "//java/io/ajarara/dependency:dependency",
         "//java/io/ajarara/dep2:dep2",
+        "//java/io/ajarara/kotdep:kotdep",
     ],
     visibility = ["PUBLIC"],
 )
