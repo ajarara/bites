@@ -52,7 +52,7 @@ public class TarjanTest {
                         3, List.of(4),
                         4, List.of(5),
                         5, List.of(6),
-                        6, new ArrayList<Integer>());
+                        6, List.<Integer>of());
 
         assertEquals(List.of(Set.of(6), Set.of(5), Set.of(4), Set.of(3), Set.of(2), Set.of(1)),
                 tarjan(hairline));
