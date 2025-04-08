@@ -10,7 +10,7 @@ public class TraversalsTest {
     @Test
     public void testPreorderTraversal_emptyTree() {
         TreeNode root = null;
-        var expected = List.of(root);
+        var expected = List.of();
         var actual = Lists.from(Traversals.preorder(root));
         assertEquals(expected, actual);
     }
