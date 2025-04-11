@@ -5,6 +5,7 @@
              (guix gexp)
              (guix packages))
 
+;; kotlin itself is not built here
 (define kotlin
   (package
     (name "kotlin")
@@ -39,4 +40,4 @@
   (packages->manifest
    (list kotlin))
   (specifications->manifest
-   (list "openjdk:jdk" "xdot"))))
+   (list "openjdk:jdk" "xdot" "maven"))))

@@ -1,4 +1,10 @@
 maven_jar(
+    name = "kotlin-stdlib",
+    id = "org.jetbrains.kotlin:kotlin-stdlib:2.1.20",
+    visibility = ["PUBLIC"]
+)
+
+maven_jar(
     name = "junit",
     id = "junit:junit:4.13.2",
     visibility = ["PUBLIC"],
@@ -10,8 +16,14 @@ maven_jar(
     visibility = ["PUBLIC"],
 )
 
+maven_jar(
+    name = "kotlinx-coroutines-core",
+    id = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2",
+    visibility = ["PUBLIC"],
+)
+
 java_binary(
-    name = "MyGreatApp",
+    name = "MyGreatApp"
     main_class = "io.ajarara.example.Example",
     deps = [
         "//java/io/ajarara/example:example",

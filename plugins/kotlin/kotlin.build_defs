@@ -203,7 +203,7 @@ def kotlin_test(name:str, srcs:list, resources:list=None, data:list=None, deps:l
         building_description = "Creating jar...",
         tools = {
             'jarcat': [CONFIG.JARCAT_TOOL],
-            'junit': [CONFIG.JUNIT_RUNNER],
+            'junit': ["///java//tools/junit_runner"],
         },
     )
 
