@@ -15,3 +15,14 @@ The only mitigateable caveat is that updating the source/build of a given packag
 
 As I switch between one buffer to the other, direnv-mode switches between different envrcs (subprojects will have as input other subprojects), which will cause re-evaluation. We might be able to push this evaluation into a background process, and also do it eagerly (see `./listen.sh` for a first attempt)
 
+
+## guix module layout
+- root
+  - manifest.scm - has only things that are needed globally (inotify-tools, direnv). may not refer to submanifests.
+  - all.scm - refers to all buildable artifacts, can be used for a quick "build + test everything in this repo"
+  - example1
+    - guix.scm - package definition of example1
+    - manifest.scm - if it exists, wraps the development manifest of whatever's in the guix.scm definition with auxiliary things needed (should be rare)
+  - example2
+    - guix.scm - package definition of example2, depends on example1
+
