@@ -1,11 +1,13 @@
-(use-modules ((guix licenses) #:prefix license:)
-             (gnu packages compression)
-             (guix build-system copy)
-             (guix download)
-             (guix gexp)
-             (guix packages))
+(define-module (manifest)
+  #:use-module ((guix licenses) #:prefix license:)
+  #:use-module (gnu packages)
+  #:use-module (gnu packages compression)
+  #:use-module (guix build-system copy)
+  #:use-module (guix download)
+  #:use-module (guix gexp)
+  #:use-module (guix packages)
+  #:use-module (guix profiles))
 
-;; kotlin itself is not built here
 (define kotlin
   (package
     (name "kotlin")
@@ -25,8 +27,7 @@
     (build-system copy-build-system)
     (arguments
      (list
-      #:install-plan #~'(("bin/kotlin" "/bin/")
-                         ("bin/kotlinc" "/bin/")
+      #:install-plan #~'(("bin/" "/bin/")
                          ("lib" "/"))))
     (native-inputs
      (list unzip))
@@ -34,10 +35,10 @@
     (description "")
     (home-page "")
     (license license:expat)))
-
+ 
 (concatenate-manifests
  (list
   (packages->manifest
    (list kotlin))
   (specifications->manifest
-   (list "openjdk:jdk" "xdot" "maven"))))
+   (list "openjdk:jdk" "xdot" "maven" "inotify-tools"))))
