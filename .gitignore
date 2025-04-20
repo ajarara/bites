@@ -3,6 +3,7 @@
 /buck-out
 /.tup
 
-# Entries below this point are managed by Please (DO NOT EDIT)
-plz-out
-.plzconfig.local
+/my-react-router-app/node_modules/
+
+/my-react-router-app/.react-router/
+/my-react-router-app/build/
