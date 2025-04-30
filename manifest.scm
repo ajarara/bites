@@ -41,4 +41,4 @@
   (packages->manifest
    (list kotlin))
   (specifications->manifest
-   (list "openjdk:jdk" "xdot" "maven" "inotify-tools"))))
+   (list "icedtea:jdk" "xdot" "maven" "inotify-tools"))))
