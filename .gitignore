@@ -1,9 +1,4 @@
 /typescript/node_modules
 /typescript/build
-/buck-out
-/.tup
 
-/my-react-router-app/node_modules/
-
-/my-react-router-app/.react-router/
-/my-react-router-app/build/
+/my-app/target
