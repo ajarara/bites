@@ -7,7 +7,7 @@ public class Example {
     public static void main(String[] args) {
         new Dependency();
         new Dep2();
-        // new io.ajarara.kotdep.Example();
+        new io.ajarara.kotdep.Example();
         System.out.println("Hello world!");
     }
 }
