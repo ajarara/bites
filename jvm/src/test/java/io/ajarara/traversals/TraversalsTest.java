@@ -1,7 +1,7 @@
 package io.ajarara.traversals;
 
-import org.junit.Test;
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 import java.util.List;
 import java.util.ArrayList;
 import io.ajarara.utils.Lists;
