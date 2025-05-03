@@ -26,5 +26,25 @@ class PalindromeTest {
         assertTrue(isPalindrome("Racecar"))
         assertFalse(isPalindrome("Wood"))
     }
+
+    @Test
+    fun `test case`() {
+        assertEquals(
+            "bab",
+            findLargestPalindrome("ababd")
+        )
+        assertEquals(
+            "aaaaaaaaa",
+            findLargestPalindrome("aaaaaaaaaabab")
+        )
+        assertEquals(
+            "a",
+            findLargestPalindrome("a")
+        )
+        assertEquals(
+            "",
+            findLargestPalindrome("")
+        )
+    }
     
 }
