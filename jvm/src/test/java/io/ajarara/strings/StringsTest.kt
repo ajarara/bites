@@ -16,13 +16,11 @@ class StringsTest {
 
     @Test
     fun `multiple strings`() {
-        println("ahmad: " + encode(listOf("asdf", "fdsa")))
         harness(listOf("asdf", "fdsa"))
     }
 
     @Test
     fun `empty string wrapped`() {
-        println("ahmad ${encode(listOf("asdf", ""))}")
         harness(listOf("asdf", ""))
     }
 
