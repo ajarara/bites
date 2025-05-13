@@ -14,7 +14,6 @@ fun decode(s: String): List<String> {
         idx = rb + 1
         val decoded = s.substring(idx, idx + nextTokenLength)
         
-        println("ahmad, idx: $idx, nextTokenLength: $nextTokenLength, decoded: $decoded")
         out.add(decoded)
         idx += nextTokenLength
     }
