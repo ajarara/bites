@@ -1,6 +1,6 @@
 package io.ajarara.permutations
 
-private inline fun swap(arr: Array<Int>, a: Int, b: Int) {
+private fun swap(arr: Array<Int>, a: Int, b: Int) {
     val tmp = arr[a]
     arr[a] = arr[b]
     arr[b] = tmp
