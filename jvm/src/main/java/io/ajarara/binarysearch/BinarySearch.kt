@@ -23,4 +23,12 @@ fun rotated(ls: List<Int>): Int {
 }
 
 
-class TimeMap
+class TimeMap {
+    fun set(key: String, value: String, timestamp: Int) {
+            
+    }
+
+    fun get(key: String, timestamp: Int): String {
+            return ""
+        }
+}

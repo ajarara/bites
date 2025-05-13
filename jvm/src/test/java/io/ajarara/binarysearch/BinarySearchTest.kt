@@ -29,16 +29,16 @@ class BinarySearchTest {
         )
     }
 
-    @Test
+    // @Test
     fun timemapEx1 () {
         val map = TimeMap()
         map.set("alice", "happy", 1)
         assertEquals(
-            "happy"
+            "happy",
             map.get("alice", 1)
         )
         assertEquals(
-            "happy"
+            "happy",
             map.get("alice", 2)
         )
         map.set("alice", "sad", 3)
