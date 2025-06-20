@@ -2,6 +2,8 @@ package io.ajarara.flows
 
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.Assertions.*
+import java.util.PriorityQueue
+import kotlin.comparisons.compareBy
 
 class TreeNodeTest {
 
@@ -87,5 +89,21 @@ class TreeNodeTest {
         val actual = root.postOrder().map { it.value }.toList()
 
         assertEquals(expected, actual)
+    }
+
+    @Test
+    fun `simple sequence manip`() {
+        val root = TreeNode(1,
+                            TreeNode(2,
+                                     TreeNode(4),
+                                     TreeNode(5)),
+                            TreeNode(3))
+
+        val pq = PriorityQueue<TreeNode>(compareBy { it.value } )
+        root.inOrder().forEach(pq::add)
+        val asList = List(pq.size) { pq.remove().value }
+        assertEquals(
+            listOf(1, 2, 3, 4, 5),
+            asList)
     }
 }
