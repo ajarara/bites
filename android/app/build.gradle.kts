@@ -1,32 +1,39 @@
-apply plugin: "com.android.application"
+plugins {
+    id("com.android.application")
+}
 
 android {
-    compileSdk 34
-    defaultConfig {
-        applicationId "com.example.android.testing.uiautomator.BasicSample"
-        minSdkVersion 21
-        targetSdkVersion 34
-        versionCode 1
-        versionName "1.0"
+    compileSdk = 34
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    defaultConfig {
+        applicationId = "com.example.android.testing.uiautomator.BasicSample"
+        minSdk = 21
+        targetSdk = 34
+        versionCode = 1
+        versionName = "1.0"
+
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
+
     buildTypes {
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            isMinifyEnabled = false
+            proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
         }
     }
+
     productFlavors {
+        // No product flavors defined in the original, but this block is kept for completeness.
     }
+
     testOptions {
         unitTests {
-            includeAndroidResources = true
+            isIncludeAndroidResources = true
         }
         managedDevices {
             devices {
-                // run with ../gradlew  nexusOneApi30DebugAndroidTest
-                nexusOneApi30(com.android.build.api.dsl.ManagedVirtualDevice) {
+                // run with ../gradlew nexusOneApi30DebugAndroidTest
+                create<com.android.build.api.dsl.ManagedVirtualDevice>("nexusOneApi30") {
                     // A lower resolution device is used here for better emulator performance
                     device = "Nexus One"
                     apiLevel = 30
@@ -36,17 +43,26 @@ android {
             }
         }
     }
-    namespace "com.example.android.testing.uiautomator.BasicSample"
-    testNamespace "com.example.android.testing.uiautomator.BasicSample.test"
+    namespace = "com.example.android.testing.uiautomator.BasicSample"
+    testNamespace = "com.example.android.testing.uiautomator.BasicSample.test"
 }
 
 dependencies {
-    implementation "com.google.guava:guava:" + rootProject.guavaVersion
+    // In Kotlin, string concatenation can be done directly with variables
+    val guavaVersion = rootProject.extra["guavaVersion"]
+    val coreVersion = rootProject.extra["coreVersion"]
+    val extJUnitVersion = rootProject.extra["extJUnitVersion"]
+    val runnerVersion = rootProject.extra["runnerVersion"]
+    val uiAutomatorVersion = rootProject.extra["uiAutomatorVersion"]
+
+    implementation("com.google.guava:guava:$guavaVersion")
+
     // Testing-only dependencies
-    androidTestImplementation "androidx.test:core:" + rootProject.coreVersion;
-    androidTestImplementation "androidx.test.ext:junit:" + rootProject.extJUnitVersion;
-    androidTestImplementation "androidx.test:runner:" + rootProject.runnerVersion;
+    androidTestImplementation("androidx.test:core:$coreVersion")
+    androidTestImplementation("androidx.test.ext:junit:$extJUnitVersion")
+    androidTestImplementation("androidx.test:runner:$runnerVersion")
+
     // UiAutomator Testing
-    androidTestImplementation "androidx.test.uiautomator:uiautomator:" + rootProject.uiAutomatorVersion;
-    androidTestImplementation "org.hamcrest:hamcrest-integration:1.3"
+    androidTestImplementation("androidx.test.uiautomator:uiautomator:$uiAutomatorVersion")
+    androidTestImplementation("org.hamcrest:hamcrest-integration:1.3")
 }
