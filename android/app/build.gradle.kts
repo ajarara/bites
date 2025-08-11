@@ -1,5 +1,6 @@
 plugins {
     id("com.android.application")
+    id("org.jetbrains.kotlin.android")
 }
 
 android {
@@ -45,9 +46,13 @@ android {
     }
     namespace = "com.example.android.testing.uiautomator.BasicSample"
     testNamespace = "com.example.android.testing.uiautomator.BasicSample.test"
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
 
 dependencies {
+    implementation("androidx.core:core-ktx:1.16.0")
     // In Kotlin, string concatenation can be done directly with variables
     val guavaVersion = rootProject.extra["guavaVersion"]
     val coreVersion = rootProject.extra["coreVersion"]
