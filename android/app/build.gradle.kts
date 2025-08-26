@@ -56,21 +56,15 @@ android {
 
 dependencies {
     implementation("androidx.core:core-ktx:1.16.0")
-    // In Kotlin, string concatenation can be done directly with variables
-    val guavaVersion = rootProject.extra["guavaVersion"]
-    val coreVersion = rootProject.extra["coreVersion"]
-    val extJUnitVersion = rootProject.extra["extJUnitVersion"]
-    val runnerVersion = rootProject.extra["runnerVersion"]
-    val uiAutomatorVersion = rootProject.extra["uiAutomatorVersion"]
-
-    implementation("com.google.guava:guava:$guavaVersion")
+    
+    implementation("com.google.guava:guava:${Versions.guavaVersion}")
 
     // Testing-only dependencies
-    androidTestImplementation("androidx.test:core:$coreVersion")
-    androidTestImplementation("androidx.test.ext:junit:$extJUnitVersion")
-    androidTestImplementation("androidx.test:runner:$runnerVersion")
+    androidTestImplementation("androidx.test:core:${Versions.coreVersion}")
+    androidTestImplementation("androidx.test.ext:junit:${Versions.extJUnitVersion}")
+    androidTestImplementation("androidx.test:runner:${Versions.runnerVersion}")
 
     // UiAutomator Testing
-    androidTestImplementation("androidx.test.uiautomator:uiautomator:$uiAutomatorVersion")
+    androidTestImplementation("androidx.test.uiautomator:uiautomator:${Versions.uiAutomatorVersion}")
     androidTestImplementation("org.hamcrest:hamcrest-integration:1.3")
 }
