@@ -6,12 +6,12 @@ plugins {
 
 android {
     namespace = "io.ajarara.app.compose"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "io.ajarara.app.compose"
         minSdk = 23
-        targetSdk = 35
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
 
