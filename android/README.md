@@ -4,13 +4,15 @@ A single module (for now) playground, based off of UiAutomator's sample code.
 # Realm vs Room
 We're going with Room, since it's closer to JDBI which is what I'm more familiar with. Given the difficulty of figuring out a query log for Realm (unless there's dedicated tooling), opaque query construction and execution feels like a bad idea. I at least get the first with Room. 
 
-Realm has cross platform support.
+Realm has cross platform support though, but if I'm targeting android learnings no reason to go with kmp, again at least for now.
 
 # demonstration through API
 https://github.com/r-spacex/SpaceX-API
-here's a relatively rich one with a deep entity stack. We can simulate updates artificially, just increment a number or something.
+here's a relatively rich one with an entity stack. We can simulate updates artificially, just increment a number or something.
 
 # general architecture
-Any given view subscribes to table(s) -- room has this built in, I think all I need to do is have the dao reference the tables. We need a way to mark the end of data -- sql rows don't tell us anything: the only real way I can think of to communicate page requests is through something that listens to EOF and terminates the flow. 
+general architecture is a bad name: a specific stack/paradigm has its place and niche. They are designed for different things. It would be great if we could all adopt a single source of truth sqlite database, having network requests write to said database and refreshing as the data comes in. A place where that really falls apart is paginated feeds: users don't have the expectation that their feeds are persisted or available offline. However they definitely expect their _messages_ to be persisted and available offline, that's where a client side table makes sense.
 
-Maybe flow is not the right approach for paginated queries -- at least not a flatMap. There are some techniques that make the sqlite database single source of truth. How well does that work with pagination and stale entries?
+Another nuance is view recreation: android may kill your activity or your application. You get around the first through saved instance state, but you cannot get around the second without filesystem persistence. And if you want to preserve the backstack, god help you, there's probably no way to do that in sqlite.
+
+For the places where users have the expectation, the common paradigm is the client side database as the client's source of truth: a network call initiated by the client deposits those rows (instead of ferrying them to the view), and then room requeries (using a table level trigger).

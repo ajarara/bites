@@ -35,7 +35,7 @@ android {
             isIncludeAndroidResources = true
         }
         managedDevices {
-            devices {
+            allDevices {
                 // run with ../gradlew nexusOneApi30DebugAndroidTest
                 create<com.android.build.api.dsl.ManagedVirtualDevice>("nexusOneApi30") {
                     // A lower resolution device is used here for better emulator performance
@@ -58,11 +58,13 @@ dependencies {
     implementation("androidx.core:core-ktx:1.16.0")
     
     implementation("com.google.guava:guava:${Versions.guavaVersion}")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
 
     // Testing-only dependencies
     androidTestImplementation("androidx.test:core:${Versions.coreVersion}")
     androidTestImplementation("androidx.test.ext:junit:${Versions.extJUnitVersion}")
     androidTestImplementation("androidx.test:runner:${Versions.runnerVersion}")
+    androidTestImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.kotlinCoroutinesTest}")
 
     // UiAutomator Testing
     androidTestImplementation("androidx.test.uiautomator:uiautomator:${Versions.uiAutomatorVersion}")
