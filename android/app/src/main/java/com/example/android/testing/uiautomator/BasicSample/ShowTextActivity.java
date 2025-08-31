@@ -16,8 +16,6 @@
 
 package com.example.android.testing.uiautomator.BasicSample;
 
-import com.google.common.base.Strings;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -40,7 +38,10 @@ public class ShowTextActivity extends Activity {
 
         // Get the message from the Intent.
         Intent intent = getIntent();
-        String message = Strings.nullToEmpty(intent.getStringExtra(KEY_EXTRA_MESSAGE));
+        String message = intent.getStringExtra(KEY_EXTRA_MESSAGE);
+        if (message == null) {
+            message = "";
+        }
 
         // Show message.
         ((TextView)findViewById(R.id.show_text_view)).setText(message);

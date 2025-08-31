@@ -58,7 +58,7 @@ android {
 dependencies {
     implementation("androidx.core:core-ktx:1.16.0")
     
-    implementation("com.google.guava:guava:${Versions.guava}")
+    // implementation("com.google.guava:guava:${Versions.guava}")
     implementation("androidx.room:room-runtime:${Versions.room}")
     implementation("androidx.appcompat:appcompat:${Versions.appCompat}")
     implementation("com.google.dagger:dagger-android:${Versions.dagger}")
