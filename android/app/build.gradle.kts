@@ -56,23 +56,32 @@ android {
 }
 
 dependencies {
-    implementation("androidx.core:core-ktx:1.16.0")
+    ksp("com.google.dagger:hilt-compiler:2.57.1")
+
     
     // implementation("com.google.guava:guava:${Versions.guava}")
     implementation("androidx.room:room-runtime:${Versions.room}")
     implementation("androidx.appcompat:appcompat:${Versions.appCompat}")
-    implementation("com.google.dagger:dagger-android:${Versions.dagger}")
-    implementation("com.google.dagger:dagger-android-support:${Versions.dagger}") // if you use the support libraries
     annotationProcessor("com.google.dagger:dagger-android-processor:${Versions.dagger}")
     annotationProcessor("androidx.room:room-compiler:${Versions.room}")
+    implementation("androidx.core:core-ktx:1.16.0")
+    implementation("com.google.dagger:hilt-android:2.57.1")
 
     testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
+    testImplementation ("com.google.dagger:hilt-android-testing:2.57.1")
 
     // Testing-only dependencies
     androidTestImplementation("androidx.test:core:${Versions.core}")
     androidTestImplementation("androidx.test.ext:junit:${Versions.extJUnit}")
     androidTestImplementation("androidx.test:runner:${Versions.runner}")
     androidTestImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.kotlinCoroutinesTest}")
+    androidTestImplementation("com.google.dagger:hilt-android-testing:2.57.1")
+
+    // For local unit tests
+    kspTest("com.google.dagger:hilt-compiler:2.57.1")
+
+    // For instrumentation tests
+    kspAndroidTest("com.google.dagger:hilt-compiler:2.57.1")
 
     // UiAutomator Testing
     androidTestImplementation("androidx.test.uiautomator:uiautomator:${Versions.uiAutomator}")
