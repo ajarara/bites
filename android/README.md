@@ -1,6 +1,19 @@
 # android
 A single module (for now) playground, based off of UiAutomator's sample code. 
 
+# pending
+come up with an app skeleton that has:
+- room for persistence
+- androidx subclasses, AppCompatActivity, Fragment base classes
+- kotlin coroutines
+- retrofit for networking
+- instrumentation tests
+- unit tests
+- multi module
+- versions managed in buildSrc
+
+We have most of this already, we just need to clean up the configuration.
+
 # Realm vs Room
 We're going with Room, since it's closer to JDBI which is what I'm more familiar with. Given the difficulty of figuring out a query log for Realm (unless there's dedicated tooling), opaque query construction and execution feels like a bad idea. I at least get the first with Room. 
 
