@@ -1,4 +1,4 @@
-package io.ajarara.bites.bootstrap
+package io.ajarara.bites.bootstrap.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
