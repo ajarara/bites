@@ -14,11 +14,6 @@ come up with an app skeleton that has:
 
 We have most of this already, we just need to clean up the configuration.
 
-# Realm vs Room
-We're going with Room, since it's closer to JDBI which is what I'm more familiar with. Given the difficulty of figuring out a query log for Realm (unless there's dedicated tooling), opaque query construction and execution feels like a bad idea. I at least get the first with Room. 
-
-Realm has cross platform support though, but if I'm targeting android learnings no reason to go with kmp, again at least for now.
-
 # demonstration through API
 http://www3.septa.org/#/ real time, free, a rich enough model.
 

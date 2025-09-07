@@ -8,7 +8,7 @@ android {
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.example.android.testing.uiautomator.BasicSample"
+        applicationId = "io.ajarara.bites"
         minSdk = 21
         targetSdk = 36
         versionCode = 1
@@ -48,8 +48,8 @@ android {
             }
         }
     }
-    namespace = "com.example.android.testing.uiautomator.BasicSample"
-    testNamespace = "com.example.android.testing.uiautomator.BasicSample.test"
+    namespace = "io.ajarara.bites"
+    testNamespace = "io.ajarara.bites.test"
     kotlinOptions {
         jvmTarget = "1.8"
     }
