@@ -67,6 +67,8 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.retrofit)
+    implementation(libs.recyclerview)
+    implementation(libs.recyclerview.selection)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
