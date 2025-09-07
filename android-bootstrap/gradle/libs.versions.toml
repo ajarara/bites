@@ -10,6 +10,7 @@ appCompat = "1.7.1"
 dagger = "2.57.1"
 room = "2.7.2"
 coroutines = "1.10.2"
+retrofit = "3.0.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -23,9 +24,7 @@ appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "a
 kotinx-coroutines-test = { group = "org.jetbrains.kotlinx ", name = "kotlinx-coroutines-test", version.ref = "coroutines" }
 android-gradle = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
 kotlin-gradle = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
-
-
-
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
