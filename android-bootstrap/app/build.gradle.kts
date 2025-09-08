@@ -63,6 +63,9 @@ android {
 }
 
 dependencies {
+    implementation(libs.constraintlayout)
+    implementation(libs.material)
+    implementation(libs.androidx.activity)
     ksp(libs.hilt.compiler)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
