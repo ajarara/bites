@@ -7,13 +7,15 @@ set -eu
 
 function build () {
     case "$1" in
-        *) echo "Unknown example: $1"; exit 1;;
+        "jvm") pushd jvm; mvn compile; popd;;
+        *) echo "Unknown build target: $1"; exit 1;;
     esac
 }
 
 function test () {
     case "$1" in
-        *) echo "Unknown example: $1"; exit 1;;
+        "jvm") pushd jvm; mvn test; popd;;
+        *) echo "Unknown test target: $1"; exit 1;;
     esac
 }
 
