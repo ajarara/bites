@@ -63,6 +63,7 @@ android {
 }
 
 dependencies {
+    implementation(project(":septa"))
     implementation(libs.constraintlayout)
     implementation(libs.material)
     implementation(libs.androidx.activity)

@@ -4,18 +4,15 @@ import android.os.Bundle
 import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
-import androidx.core.view.ViewGroupCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.insets.GradientProtection
-import androidx.core.view.insets.ProtectionLayout
 import androidx.core.view.updatePadding
 import io.ajarara.bites.bootstrap.R
-import io.ajarara.bites.bootstrap.fragment.SplashFragment
+import io.ajarara.bites.bootstrap.fragment.DirectoryFragment
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.main_activity)
+        setContentView(R.layout.activity_main)
         val myView = findViewById<FrameLayout>(R.id.inset_protection)
 
         ViewCompat.setOnApplyWindowInsetsListener(myView) { view, windowInsets ->
@@ -32,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         supportFragmentManager.beginTransaction()
-            .replace(R.id.main, SplashFragment())
+            .replace(R.id.main, DirectoryFragment())
             .commitNow()
 
     }

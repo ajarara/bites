@@ -15,6 +15,8 @@ import org.junit.runner.RunWith
 
 import org.junit.Assert.*
 import org.junit.Rule
+import java.util.concurrent.ConcurrentHashMap
+import java.util.concurrent.ConcurrentMap
 
 /**
  * Instrumented test, which will execute on an Android device.
@@ -28,8 +30,28 @@ class ExampleInstrumentedTest {
     fun helloWorldIsDisplayedOnAppStart() {
         ActivityScenario.launch(MainActivity::class.java)
 
-        onView(withText("Hello world!"))
+        onView(withText("Choose a demo below!"))
             .check(matches(isDisplayed()))
+    }
+
+    private class Thing(var field: Int)
+    @Test
+    fun concurrentMapTest () {
+        val heldReference = Thing(0)
+        val throughMap = Thing(0)
+        val c = ConcurrentHashMap<String, Thing>()
+
+        c["throughMap"] = throughMap
+        c["heldReference"] = heldReference
+
+        Thread {
+            listOf("heldReference", "throughMap").forEach {
+                c.getValue(it).field = 1
+            }
+        }.join()
+        
+        assertEquals(heldReference.field, 1)
+        assertEquals(c.getValue("throughMap").field, 1)
     }
 
 }

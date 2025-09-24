@@ -4,10 +4,10 @@ buildscript {
         google()
         mavenCentral()
     }
-    dependencies {
-        classpath(libs.android.gradle)
-        classpath(libs.kotlin.gradle)
-    }
+//    dependencies {
+//        classpath(libs.android.gradle)
+//        classpath(libs.kotlin.gradle)
+//    }
 }
 
 plugins {
