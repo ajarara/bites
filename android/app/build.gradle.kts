@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.ksp)
+    alias(libs.plugins.hilt)
 }
 
 android {
@@ -67,15 +68,19 @@ dependencies {
     implementation(libs.constraintlayout)
     implementation(libs.material)
     implementation(libs.androidx.activity)
-    ksp(libs.hilt.compiler)
+    implementation(libs.hilt.android)
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.retrofit)
     implementation(libs.recyclerview)
     implementation(libs.recyclerview.selection)
 
+    ksp(libs.hilt.android.compiler)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    androidTestImplementation(libs.hilt.android.testing)
     
 }

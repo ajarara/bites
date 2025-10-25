@@ -13,6 +13,7 @@ class SeptaFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         return inflater.inflate(R.layout.fragment_septa, container, false)
     }
 }

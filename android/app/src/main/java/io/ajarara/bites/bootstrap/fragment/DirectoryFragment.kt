@@ -24,7 +24,6 @@ class DirectoryFragment : Fragment() {
                 .replace(R.id.main, SeptaFragment())
                 .addToBackStack(null)
                 .commit()
-
         }
         return binding.root
     }

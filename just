@@ -21,5 +21,6 @@ function test () {
 
 case "$1" in
     "test" | "build") $@;;
+    "gradlew") pushd android; $@; popd;;
     *) echo "Unknown subcommand $1"; exit 1;;
 esac
