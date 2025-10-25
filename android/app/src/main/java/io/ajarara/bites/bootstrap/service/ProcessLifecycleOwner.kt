@@ -14,6 +14,10 @@ class ProcessLifecycleOwner @Inject constructor(
     private val application: Application
 ) : LifecycleOwner {
 
+    init {
+        println("Ahmad process lifecycle creation")
+    }
+
     override val lifecycle: Lifecycle by lazy {
         val wired = LifecycleRegistry(this)
         println("Ahmad initializing processLifecycleOwner.lifecycle")

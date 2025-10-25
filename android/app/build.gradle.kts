@@ -70,6 +70,7 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.hilt.android)
 
+    implementation(libs.lifecycle.runtime.ktx)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.retrofit)

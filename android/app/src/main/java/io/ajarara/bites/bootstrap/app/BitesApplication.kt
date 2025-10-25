@@ -17,6 +17,7 @@ class BitesApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        println("Ahmad component creation?")
         processLifecycleOwner.init()
     }
 }
