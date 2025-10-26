@@ -22,4 +22,11 @@
         android:layout_height="wrap_content"
         android:text="@string/septa_btn"/>
 
+    <!-- Button to navigate to the detail page. -->
+    <Button
+        android:id="@+id/obscuring"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/obscuring_btn"/>
+
 </androidx.appcompat.widget.LinearLayoutCompat>

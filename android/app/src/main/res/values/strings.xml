@@ -3,4 +3,5 @@
     <string name="greeting">Hello world!</string>
     <string name="directory_title">Choose a demo below!</string>
     <string name="septa_btn">SEPTA</string>
+    <string name="obscuring_btn">OBSCURING</string>
 </resources>

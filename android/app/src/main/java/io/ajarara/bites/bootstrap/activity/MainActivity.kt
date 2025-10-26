@@ -34,4 +34,19 @@ class MainActivity : AppCompatActivity() {
             .replace(R.id.main, DirectoryFragment())
             .commitNow()
     }
+
+    override fun onPause() {
+        super.onPause()
+        println("Ahmad mainActivity#onPause")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        println("Ahmad mainActivity#onStop")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        println("Ahmad mainActivity#onResume")
+    }
 }
