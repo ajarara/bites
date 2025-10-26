@@ -15,6 +15,13 @@
         android:textSize="24sp"
         android:layout_marginBottom="16dp"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/recur"
+        android:id="@+id/recur"/>
+
+
     <!-- Button to navigate to the detail page. -->
     <Button
         android:id="@+id/septa"
@@ -22,11 +29,17 @@
         android:layout_height="wrap_content"
         android:text="@string/septa_btn"/>
 
-    <!-- Button to navigate to the detail page. -->
+    <!-- Button to navigate to the obscuring activity. -->
     <Button
         android:id="@+id/obscuring"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/obscuring_btn"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/service"
+        android:text="@string/service"/>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

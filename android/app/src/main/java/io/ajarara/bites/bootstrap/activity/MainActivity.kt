@@ -9,6 +9,7 @@ import androidx.core.view.updatePadding
 import dagger.hilt.android.AndroidEntryPoint
 import io.ajarara.bites.bootstrap.R
 import io.ajarara.bites.bootstrap.fragment.DirectoryFragment
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -37,16 +38,26 @@ class MainActivity : AppCompatActivity() {
 
     override fun onPause() {
         super.onPause()
-        println("Ahmad mainActivity#onPause")
+        println("Ahmad $this#onPause")
     }
 
     override fun onStop() {
         super.onStop()
-        println("Ahmad mainActivity#onStop")
+        println("Ahmad $this#onStop")
     }
 
     override fun onResume() {
         super.onResume()
-        println("Ahmad mainActivity#onResume")
+        println("Ahmad $this#onResume")
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        println("Ahmad $this#onDestroy")
+    }
+}
+
+
+class Frob @Inject constructor() {
+
 }

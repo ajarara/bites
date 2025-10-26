@@ -4,4 +4,6 @@
     <string name="directory_title">Choose a demo below!</string>
     <string name="septa_btn">SEPTA</string>
     <string name="obscuring_btn">OBSCURING</string>
+    <string name="service">Service</string>
+    <string name="recur">Recur</string>
 </resources>
