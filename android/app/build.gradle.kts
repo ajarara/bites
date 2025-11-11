@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.tooling.core.closure
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -80,6 +82,9 @@ dependencies {
     ksp(libs.hilt.android.compiler)
 
     testImplementation(libs.junit)
+    testImplementation(libs.lincheck)
+    testImplementation(libs.kotlinx.coroutines.test)
+    androidTestImplementation(libs.kotlinx.coroutines.test)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.hilt.android.testing)
