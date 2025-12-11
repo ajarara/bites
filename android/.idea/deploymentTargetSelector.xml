@@ -8,13 +8,10 @@
       <SelectionState runConfigName="septa">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="concurrentMapTest()">
+      <SelectionState runConfigName="anrDetection()">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="readHoisting()">
-        <option name="selectionMode" value="DROPDOWN" />
-      </SelectionState>
-      <SelectionState runConfigName="readHoistingDemonstration()">
+      <SelectionState runConfigName="attemptToWriteAfterDismiss()">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>

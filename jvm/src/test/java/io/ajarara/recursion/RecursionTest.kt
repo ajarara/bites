@@ -40,4 +40,20 @@ class RecursionTest {
             ipAddress("1234a54"),
         )
     }
+
+    @Test
+    fun `cme on diff keys`() {
+        val c = mutableMapOf<Int, Unit>()
+        fun recur(key: Int) { 
+            c.compute(key) { k, v ->
+                when(key) {
+                    0 -> recur(key + 1)
+                    else -> null
+                }
+                Unit
+            }
+        }
+        recur(0)
+        assertEquals(c, mapOf(0 to Unit, 1 to Unit))
+    }
 }

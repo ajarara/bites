@@ -2,6 +2,8 @@ package io.ajarara.bites.bootstrap.activity
 
 import android.os.Bundle
 import android.widget.FrameLayout
+import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -60,7 +62,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        println("Ahmad $this#onDestroy")
     }
 }
 

@@ -1,5 +1,10 @@
 package io.ajarara.bites.bootstrap
 
+import android.app.AlertDialog
+import android.os.Handler
+import android.os.Looper
+import android.widget.FrameLayout
+import android.widget.TextView
 import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.assertion.ViewAssertions.matches
@@ -9,6 +14,7 @@ import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import io.ajarara.bites.bootstrap.activity.MainActivity
+import io.ajarara.bites.bootstrap.fragment.DirectoryFragment
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
@@ -84,5 +90,12 @@ class ExampleInstrumentedTest {
                 println("Set 2")
             },
         ).awaitAll()
+    }
+
+    @Test
+    fun attemptToWriteAfterDismiss() {
+        val scenario = ActivityScenario.launch(MainActivity::class.java)
+        scenario.onActivity { activity -> activity.finish() }
+        Thread.sleep(3000)
     }
 }

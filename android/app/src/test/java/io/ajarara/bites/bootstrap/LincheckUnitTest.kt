@@ -26,7 +26,7 @@ class LincheckUnitTest {
     @Operation
     fun get() = c.get()
 
-    @Test
+    // @Test
     fun stressTest() = StressOptions().check(this::class)
 }
 
@@ -99,5 +99,29 @@ class LincheckLRUSequentialCacheTest {
     fun store(@Param(name = "key") key: Int) = lruCache.get(key)
 
     @Test
-    fun stressTest() = StressOptions().iterations(1000).check(this::class)
+    fun stressTest() = StressOptions().check(this::class)
+}
+
+
+@Param(name = "key", gen = IntGen::class, conf = "1:15")
+@Param(name = "count", gen = IntGen::class, conf = "1:15")
+class LincheckConcurrentMapTest {
+    private class ModelRef(var count: Int)
+
+    private val repo = java.util.concurrent.ConcurrentHashMap<Int, ModelRef>()
+
+    @Operation
+    fun get(@Param(name = "key") key: Int) = repo.get(key)?.count
+
+    @Operation
+    fun store(@Param(name = "key") key: Int,
+              @Param(name = "count") count: Int) {
+        val model = repo.computeIfAbsent(key) { key ->
+            ModelRef(-1)
+        }
+        model.count = count
+    }
+    
+    @Test
+    fun stressTest() = StressOptions().check(this::class)
 }

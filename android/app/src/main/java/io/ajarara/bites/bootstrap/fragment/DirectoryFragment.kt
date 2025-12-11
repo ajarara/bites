@@ -19,6 +19,7 @@ import io.ajarara.bites.septa.SeptaFragment
 class DirectoryFragment : Fragment() {
 
     private var context: Context? = null
+    lateinit var binding: FragmentDirectoryBinding
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -35,7 +36,7 @@ class DirectoryFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding = FragmentDirectoryBinding.inflate(inflater)
+        binding = FragmentDirectoryBinding.inflate(inflater)
         binding.recur.setOnClickListener {
             context?.let {
                 it.startActivity(

@@ -5,9 +5,8 @@ export function hello(who: string = world): string {
 }
 
 // in place sort
-export function heapify(in: number[]): number[] {
-  
-
+export function heapify(got: number[]): number[] {
+  return got;
 }
 
 function siftDown(arr: number[], i: number, bound: number) {
