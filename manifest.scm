@@ -72,4 +72,4 @@
   (packages->manifest
    (list kotlin mvnd))
   (specifications->manifest
-   (list "openjdk:jdk" "xdot" "maven" "inotify-tools"))))
+   (list "openjdk@21:jdk" "xdot" "maven" "inotify-tools"))))
