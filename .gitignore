@@ -2,3 +2,4 @@
 /typescript/build
 
 /jvm/target
+/android/.idea/deploymentTargetSelector.xml
