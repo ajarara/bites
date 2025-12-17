@@ -72,6 +72,13 @@ class DirectoryFragment : Fragment() {
                 }
             }
         }
+
+        binding.composeFragmentButton.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.main, ComposeFragment())
+                .addToBackStack(null)
+                .commit()
+        }
         return binding.root
     }
 }
