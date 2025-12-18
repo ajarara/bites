@@ -62,6 +62,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
+        println("Ahmad $this#onDestroy")
     }
 }
 
