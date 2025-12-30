@@ -28,6 +28,10 @@ As I switch between one buffer to the other, direnv-mode switches between differ
 If these become anything deployable, they will be moved out of tree into their own repos, with the packaging (and so, development profiles) defined in a guix channel so that they can be referred to from where ever.
 
 ### further ideas
+#### defer environments until builds
 instead of using direnv to trigger builds as we jump between projects in the UI, why not just defer them until we actually build/test? e.g. guix shell example2 -- cd example2; mvn build example2
 
 The only time we need them is when we're compiling. This significantly minimizes the amount of intermediates in the store (nothing stops us from running the build system directly).
+
+#### merge environments
+I don't really like that I have to have a wrapper script to push directories. Given there's no intersection between all these projects, why not just consolidate under the top level? This way all the tooling just works, I don't have to figure out how to simulate project roots.
